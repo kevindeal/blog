@@ -37,7 +37,6 @@ define('DB_CHARSET', 'utf8mb4');
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
-
 /**#@+
  * Authentication Unique Keys and Salts.
  *
@@ -85,6 +84,13 @@ define('WP_DEBUG', false);
 /** Absolute path to the WordPress directory. */
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
+
+/**Hosting locally and Live */
+define('WP_CACHE', true); $currenthost = $_SERVER['HTTP_HOST']; $mypos = strpos($currenthost, 'localhost'); if ($mypos === false)
+{ define('WP_HOME','http://kevindeal.superfriend.ly'); 
+define('WP_SITEURL','http://kevindeal.superfriend.ly'); }
+else { define('WP_HOME','http://localhost/8888');
+define('WP_SITEURL','http://localhost/8888'); }
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
